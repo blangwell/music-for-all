@@ -12,6 +12,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Home from './Components/Home';
 import About from './Components/About';
 import GetInvolved from './Components/GetInvolved';
+import { NavbarBrand } from 'react-bootstrap';
 
 function App() {
   return (
