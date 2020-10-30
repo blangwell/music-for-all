@@ -5,12 +5,12 @@ import {
   Link,
 } from 'react-router-dom';
 
-import Navbar from 'react-bootstrap/Navbar';
+import { Nav, Navbar } from 'react-bootstrap';
+// import Navbar from 'react-bootstrap/Navbar';
 
 import Home from './Home';
 import About from './About';
 import GetInvolved from './GetInvolved';
-import { Nav } from 'react-bootstrap';
 
 function BootstrapNavbar() {
   return (
