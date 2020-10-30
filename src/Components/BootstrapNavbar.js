@@ -17,7 +17,7 @@ function BootstrapNavbar() {
         <div className="row">
           <div className="col-md-12">
             <Router>
-              <Navbar bg="dark" expand="lg" sticky="top">
+              <Navbar bg="#fff" expand="lg" sticky="top">
                 <Navbar.Brand href="#home">Music 4 All</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
