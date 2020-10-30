@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
@@ -22,9 +23,19 @@ function BootstrapNavbar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/about">About</Nav.Link>
-                  <Nav.Link href="/getinvolved">Get Involved</Nav.Link>
+                  {/* <Nav.Link href="/">Home</Nav.Link> */}
+                  {/* <Link to="/">Home</Link> */}
+                  {/* <Nav.Link href="/about">About</Nav.Link>
+                  <Nav.Link href="/getinvolved">Get Involved</Nav.Link> */}
+
+                  {/* we use as={Link} to tell the compiler 
+                  to consider the NavLink object as a 
+                  react router Link object instead
+                  this prevents the browser from reloading*/}
+                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                  <Nav.Link as={Link} to="/about">About</Nav.Link>
+                  <Nav.Link as={Link} to="/getinvolved">Get Involved</Nav.Link>
+
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
