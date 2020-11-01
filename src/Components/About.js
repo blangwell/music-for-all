@@ -2,7 +2,7 @@ function About() {
 
   return(
     <div id="about">
-    <h1>About</h1>
+    <h1 className="page-title">About</h1>
       <p>
       Cindy Van Horn has been bringing her love of music to students of all ages
   for over 35 years. She directs children’s choirs, teaches class and private

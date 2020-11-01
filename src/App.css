@@ -1,4 +1,9 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +40,22 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.page-title {
+  font-family: 'Calistoga', cursive;
+
+
+}
+
+p, .nav-link {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.sub-title {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
 }
