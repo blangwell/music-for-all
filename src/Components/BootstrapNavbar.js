@@ -20,7 +20,7 @@ function BootstrapNavbar() {
           <Router>
           
             <Navbar bg="#fff" expand="lg" sticky="top">
-              <Navbar.Brand as={Link} to="/">Music 4 All</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/" id="nav-title">Music 4 All</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
