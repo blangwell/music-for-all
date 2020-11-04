@@ -20,7 +20,7 @@ function BootstrapNavbar() {
         <div className="col-md-12">
           <Router>
           
-            <Navbar bg="#fff" expand="lg" sticky="top">
+            <Navbar className="navbar-dark" expand="lg" sticky="top" style={{backgroundColor: "#2855ae"}}>
               <Navbar.Brand as={Link} to="/" id="nav-title">Music 4 All</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

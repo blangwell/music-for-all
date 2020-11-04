@@ -17,11 +17,22 @@
 
 #nav-title {
   font-family: 'Goblin One', serif;
+  /* color: #fff; */
 }
 
-.page-copy, .nav-link {
+.page-copy {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+
+}
+
+.nav-link {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #fff !important;
+}
+.nav-link:hover {
+  color: yellow !important;
 }
 
 .sub-title {
