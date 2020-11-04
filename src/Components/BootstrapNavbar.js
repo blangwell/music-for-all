@@ -33,7 +33,7 @@ function BootstrapNavbar() {
                   <Nav.Link as={Link} to="/" className="nav-link">Home</Nav.Link>
                   <Nav.Link as={Link} to="/about" className="nav-link">About</Nav.Link>
                   <Nav.Link as={Link} to="/getinvolved" className="nav-link">Get Involved</Nav.Link>
-                  <Nav.Link as={Link} to="/contact" className="nav-link">Contact</Nav.Link>
+                  {/* <Nav.Link as={Link} to="/contact" className="nav-link">Contact</Nav.Link> */}
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
@@ -48,9 +48,9 @@ function BootstrapNavbar() {
               <Route path="/getinvolved">
                 <GetInvolved />
               </Route>
-              <Route path="/contact">
+              {/* <Route path="/contact">
                 <Contact />
-              </Route>
+              </Route> */}
             </Switch>
 
           </Router>
