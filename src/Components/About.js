@@ -1,7 +1,7 @@
 function About() {
 
   return(
-    <div id="about">
+    <div className="d-flex flex-column p-5" id="about">
     <h1 className="page-title">About</h1>
       <p className="page-copy">
       Cindy Van Horn has been bringing her love of music to students of all ages

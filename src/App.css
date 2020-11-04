@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
 
 .page-title {
   font-family: 'Calistoga', serif;
@@ -19,4 +27,16 @@
 .sub-title {
   font-weight: 700;
   font-family: 'Lato', sans-serif;
+}
+
+#miss-cindy {
+  font-family: 'Homemade Apple', cursive;
+  /* 
+  to use transform on a span, we must
+  set the display to inline-block or block
+  display: inline-block;
+  transform: rotate(0.9turn); */
+}
+#m4a {
+  font-family: 'Goblin One', serif;
 }

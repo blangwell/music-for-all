@@ -11,7 +11,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import Home from './Home';
 import About from './About';
 import GetInvolved from './GetInvolved';
-import Contact from './Contact';
+// import Contact from './Contact';
 
 function BootstrapNavbar() {
   return (

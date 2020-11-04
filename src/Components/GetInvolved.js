@@ -1,6 +1,6 @@
 function GetInvolved() {
   return(
-    <div id="get-involved">
+    <div className="d-flex flex-column p-3" id="get-involved">
       <h1 className="page-title">Get Involved</h1>
       <h2 className="sub-title">Choir</h2>
       <p className="page-copy">If you are new to Music 4 All, we suggest you start with one of the CHOIR
