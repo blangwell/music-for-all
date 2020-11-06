@@ -40,6 +40,20 @@
   font-family: 'Lato', sans-serif;
 }
 
+#landing-banner {
+  /* display: block; */
+  margin: 0 auto; 
+  padding: 50px 0;
+  background-image: url('./puzzle-piece.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+#landing-banner:hover {
+  transform: rotate(-5deg)
+}
 
 #miss-cindy {
   font-family: 'Homemade Apple', cursive;
@@ -52,9 +66,19 @@
 }
 
 #puzzle-piece {
-  z-index: -1;
+  /* z-index: -1; */
   width: 100px;
   height: 100px;
   position: relative;
-  top: -50px;
+  top: -80px;
+  left: 50px;
+  transform: rotate(0.9turn)
 }
+
+#puzzle-piece:hover {
+  /* z-index: -1; */
+  width: 120px;
+  height: 120px;
+  transform: scale(1.5);
+}
+
