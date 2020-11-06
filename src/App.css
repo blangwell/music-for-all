@@ -40,14 +40,21 @@
   font-family: 'Lato', sans-serif;
 }
 
+
 #miss-cindy {
   font-family: 'Homemade Apple', cursive;
-  /* 
-  to use transform on a span, we must
-  set the display to inline-block or block
-  display: inline-block;
-  transform: rotate(0.9turn); */
+  font-size: 30px;
+  /* to use transform on a span, we must
+  set the display to inline-block or block */
 }
 #m4a {
   font-family: 'Goblin One', serif;
+}
+
+#puzzle-piece {
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -50px;
 }
