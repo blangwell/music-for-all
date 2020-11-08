@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 
 import { Nav, Navbar } from 'react-bootstrap';
-// import Navbar from 'react-bootstrap/Navbar';
 
 import Home from './Home';
 import About from './About';
