@@ -17,12 +17,16 @@ const Contact = (props) => {
 
     axios.post(`http://localhost:8080/sendemail`, {email, message})
     .then(response => {
-      console.log(response);
-      // setEmail('');
-      // setMessage('');
+      if (response.data.status === 'success') {
+        alert('message sent');
+        history.push('/')
+      } else if (response.data.status === 'fail') {
+        alert('message failed')
+      }
     })
-    .catch(err => console.log(err))
-    history.push('/');
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   if (redirect) {
