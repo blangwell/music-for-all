@@ -9,33 +9,48 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const sentMessage = { email, message }
-    axios.post(`http://localhost:8080/sendemail`, sentMessage)
+    let formData = {email, message}
+    
+    axios.post(`http://localhost:8080/sendemail`, {email, message})
     .then(response => {
       console.log(response);
       setEmail('');
       setMessage('');
     })
     .catch(err => console.log(err))
-    // console.log(e);
   }
 
   return(
     <div id="contact">
       <h1 className="page-title">Contact</h1>
-      {/* <Form onSubmit={handleSubmit}> */}
-      <form onSubmit={handleSubmit}>
+      {/* <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email" className="w-25">
           <Form.Label>Email Address</Form.Label>
-          <Form.Control type="email" name="email" value={email} placeholder="Your email" onChange={(e) => setEmail(e.target.value)} required/>
+          <Form.Control type="email" name="email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)} value={email} required/>
         </Form.Group>
         <Form.Group controlId="message" className="w-50">
           <Form.Label>Your Message</Form.Label>
-          <Form.Control as="textarea" name="message" value={message} rows={5} onChange={(e) => setMessage(e.target.value)} required/>
+          <Form.Control as="textarea" name="message" id="message" rows={5} onChange={(e) => setMessage(e.target.value)} value={message} required/>
         </Form.Group>
         <Button type="submit" variant="primary">Submit</Button>
+      </Form> */}
+
+      <form onSubmit={handleSubmit}>
+        <div className="column">
+            <div className="form-group">
+                <label htmlFor="email">email</label>
+                <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="message">message</label>
+                <textarea name="message" id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="input" required >
+
+                </textarea>
+                {/* <input type="textarea" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className="input" required /> */}
+            </div>
+            <button type="submit" className="button">Submit</button>
+        </div>
       </form>
-      {/* </Form> */}
     </div>
   )
 }
