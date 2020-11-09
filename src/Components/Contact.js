@@ -1,31 +1,46 @@
-import { useState } from 'react';
+import { useState, createRef, useRef } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Redirect, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 // const SERVER_URL = process.env.SERVER_URL
 
 const Contact = (props) => {
   let [email, setEmail] = useState('');
   let [message, setMessage] = useState('');
   let [redirect, setRedirect] = useState(false);
+  let [captchaVal, setCaptchaVal] = useState(null);
 
-  let history = useHistory();
+  // const recaptchaRef = createRef();
+  const recaptchaRef = useRef();
 
-  const handleSubmit = (e) => {
+  // const onSubmitWithReCAPTCHA = async () => {
+  // }
+  
+  const history = useHistory();
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = await recaptchaRef.current.executeAsync();
+    console.log(token)
+      axios.post('http://localhost:8080/sendemail', {email, message})
+      .then(response => {
+        if (response.data.status === 'success') {
+          alert('message sent');
+          history.push('/')
+        } else if (response.data.status === 'fail') {
+          alert('message failed')
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
-    axios.post(process.env.SERVER_URL, {email, message})
-    .then(response => {
-      if (response.data.status === 'success') {
-        alert('message sent');
-        history.push('/')
-      } else if (response.data.status === 'fail') {
-        alert('message failed')
-      }
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  function onChange(val) {
+    console.log('captcha value : ', val)
+    setCaptchaVal(val)
   }
 
   if (redirect) {
@@ -44,8 +59,17 @@ const Contact = (props) => {
           <Form.Label>Your Message</Form.Label>
           <Form.Control as="textarea" name="message" rows={5} onChange={(e) => setMessage(e.target.value)} value={message} required/>
         </Form.Group>
+        <ReCAPTCHA 
+        ref={recaptchaRef}
+        size="invisible" 
+        sitekey='6LcWA-EZAAAAAJzTcReB1-J4hkb9kxCGrVhBhzjw ' 
+        // sitekey={process.env.REACT_APP_RECAPTCHA_KEY} 
+        onChange={onChange} 
+        />
         <Button type="submit" variant="primary">Submit</Button>
       </Form>
+
+
     </div>
   )
   }
