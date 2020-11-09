@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
-const SERVER_URL = process.env.SERVER_URL
+// const SERVER_URL = process.env.SERVER_URL
 
 const Contact = (props) => {
   let [email, setEmail] = useState('');
@@ -13,9 +13,8 @@ const Contact = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let formData = {email, message}
 
-    axios.post(`http://localhost:8080/sendemail`, {email, message})
+    axios.post(process.env.SERVER_URL, {email, message})
     .then(response => {
       if (response.data.status === 'success') {
         alert('message sent');
@@ -32,8 +31,6 @@ const Contact = (props) => {
   if (redirect) {
     return <Redirect to="/" />
   } else {
-
-
 
   return(
     <div id="contact">
@@ -55,21 +52,3 @@ const Contact = (props) => {
 }
 
 export default Contact;
-
-
-{/* <form onSubmit={handleSubmit}>
-  <div className="column">
-      <div className="form-group">
-          <label htmlFor="email">email</label>
-          <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" required />
-      </div>
-      <div className="form-group">
-          <label htmlFor="message">message</label>
-          <textarea name="message" id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="input" required >
-
-          </textarea>
-          <input type="textarea" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className="input" required />
-      </div>
-      <button type="submit" className="button">Submit</button>
-  </div>
-</form> */}
