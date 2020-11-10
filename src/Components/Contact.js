@@ -10,31 +10,24 @@ const Contact = (props) => {
   let [email, setEmail] = useState('');
   let [message, setMessage] = useState('');
   let [redirect, setRedirect] = useState(false);
-  // let [captchaVal, setCaptchaVal] = useState(null);
 
-  // const recaptchaRef = createRef();
   const recaptchaRef = useRef();
-
-  // const onSubmitWithReCAPTCHA = async () => {
-  // }
-  
   const history = useHistory();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await recaptchaRef.current.executeAsync();
-    console.log(token)
-      axios.post('http://localhost:8080/sendemail', {email, message})
+    // recaptchaRef.current.reset();
+
+      axios.post('http://localhost:8080/sendemail', {email, message, token})
       .then(response => {
-        if (response.data.status === 'success') {
+        console.log(response.data, 'REPONSE DATA CLIENT SIDE')
           alert('message sent');
+          setRedirect(true)
           history.push('/')
-        } else if (response.data.status === 'fail') {
-          alert('message failed')
-        }
       })
       .catch(err => {
-        console.log(err)
+        console.log('post error', err)
       })
   }
 
@@ -65,6 +58,7 @@ const Contact = (props) => {
         sitekey='6LcWA-EZAAAAAJzTcReB1-J4hkb9kxCGrVhBhzjw ' 
         // sitekey={process.env.REACT_APP_RECAPTCHA_KEY} 
         onChange={onChange} 
+        className="g-recaptcha"
         />
         <Button type="submit" variant="primary">Submit</Button>
       </Form>
