@@ -10,7 +10,7 @@ const Contact = (props) => {
   let [email, setEmail] = useState('');
   let [message, setMessage] = useState('');
   let [redirect, setRedirect] = useState(false);
-  let [captchaVal, setCaptchaVal] = useState(null);
+  // let [captchaVal, setCaptchaVal] = useState(null);
 
   // const recaptchaRef = createRef();
   const recaptchaRef = useRef();
@@ -40,7 +40,7 @@ const Contact = (props) => {
 
   function onChange(val) {
     console.log('captcha value : ', val)
-    setCaptchaVal(val)
+    // setCaptchaVal(val)
   }
 
   if (redirect) {
