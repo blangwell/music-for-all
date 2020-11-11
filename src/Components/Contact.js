@@ -1,12 +1,11 @@
-import { useState, createRef, useRef } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Redirect, useHistory } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+const {REACT_APP_PUBLIC_RECAPTCHA_KEY, REACT_APP_SERVER_URL} = process.env;
 
-// const SERVER_URL = process.env.SERVER_URL
-
-const Contact = (props) => {
+const Contact = () => {
   let [email, setEmail] = useState('');
   let [message, setMessage] = useState('');
   let [redirect, setRedirect] = useState(false);
@@ -17,9 +16,8 @@ const Contact = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await recaptchaRef.current.executeAsync();
-    // recaptchaRef.current.reset();
 
-      axios.post('http://localhost:8080/sendemail', {email, message, token})
+      axios.post(`${REACT_APP_SERVER_URL}/sendemail`, {email, message, token})
       .then(response => {
         console.log(response.data, 'REPONSE DATA CLIENT SIDE')
           alert('message sent');
@@ -29,11 +27,6 @@ const Contact = (props) => {
       .catch(err => {
         console.log('post error', err)
       })
-  }
-
-  function onChange(val) {
-    console.log('captcha value : ', val)
-    // setCaptchaVal(val)
   }
 
   if (redirect) {
@@ -55,9 +48,7 @@ const Contact = (props) => {
         <ReCAPTCHA 
         ref={recaptchaRef}
         size="invisible" 
-        sitekey='6LcWA-EZAAAAAJzTcReB1-J4hkb9kxCGrVhBhzjw ' 
-        // sitekey={process.env.REACT_APP_RECAPTCHA_KEY} 
-        onChange={onChange} 
+        sitekey={REACT_APP_PUBLIC_RECAPTCHA_KEY}
         className="g-recaptcha"
         />
         <Button type="submit" variant="primary">Submit</Button>
